@@ -34,8 +34,6 @@ sun_x = 700
 sun_y = 300
 angle_sun = 180
 angle_moon = 0
-enemy_x = 500
-enemy_y = 200
 building_x = 450
 building_y = 165
 current_time = datetime.now()
@@ -46,55 +44,17 @@ cloud1size = random.randint(25,35)
 
 running = True
 while running:
-    # EVENT HANDLING
-    for event in pygame.event.get():
-        if event.type == KEYDOWN:
-            if event.key == K_ESCAPE:
-                running = False
-        elif event.type == QUIT:
-            running = False
-        elif event.type == MOUSEBUTTONDOWN:
-            print (pygame.mouse.get_pos())
+#     EVENT HANDLING
+#     for event in pygame.event.get():
+#         if event.type == KEYDOWN:
+#             if event.key == K_ESCAPE:
+#                 running = False
+#         elif event.type == QUIT:
+#             running = False
+         elif event.type == MOUSEBUTTONDOWN:
+             print (pygame.mouse.get_pos())
 
-    # GAME STATE UPDATES
-    keys = pygame.key.get_pressed()
-    if keys[K_LSHIFT] == True:
-        movement_speed = 10
-    else:
-        movement_speed = 6
-    if keys[115] == True: 
-        circle_y += movement_speed
-    if keys[119] == True: 
-        circle_y -= movement_speed
-    if keys[100] == True: 
-        circle_x += movement_speed
-    if keys[97] == True: 
-        circle_x -= movement_speed
-    # if keys[K_SPACE] == True:
-    #     time.sleep(1)
-
-    if enemy_x < circle_x:
-        if enemy_x + 30 < circle_x:
-            enemy_x += 3
-        else:
-            enemy_x += 1
-    elif enemy_x > circle_x:
-        if enemy_x - 30 > circle_x:
-            enemy_x -= 3
-        else:
-            enemy_x -= 1
-    
-    if enemy_y < circle_y:
-        if enemy_y + 30 < circle_y:
-            enemy_y += 3
-        else:
-            enemy_x += 1
-    elif enemy_y > circle_y:
-        if enemy_y - 30 > circle_y:
-            enemy_y -= 3
-        else:
-            enemy_y -= 1
-
+#     GAME STATE UPDATES
     if angle_sun > 185 and angle_sun < 355:
         day = True
     else:
@@ -103,11 +63,7 @@ while running:
     
     
     # All game math and comparisons happen here
-
-    # sun_x = orbit_origin_x + math.cos(angle)*radius;
-    # sun_y = orbit_origin_y + math.sin(angle)*radius;
-
-
+    
     if angle_sun >= 360:
         angle_sun = 0
     theta_sun = math.radians(angle_sun)
@@ -180,9 +136,6 @@ while running:
     pygame.draw.circle(screen, cloud_colour, (cloud_x_3 + 80, cloud_y_3), cloud1size)
     pygame.draw.circle(screen, cloud_colour, (cloud_x_3 + 25, cloud_y_3 + 25), cloud1size)
     pygame.draw.circle(screen, cloud_colour, (cloud_x_3 + 60, cloud_y_3 + 30), cloud1size)
-    # pygame.draw.circle(screen, (0, 0, 200), (circle_x, circle_y), 30)
-    # pygame.draw.circle(screen, (200, 0, 0), (enemy_x, enemy_y), 25)
-    # pygame.draw.circle(screen, (200, 0, 0), (enemy_x, enemy_y), 25)
     # pygame.draw.rect(screen, (100, 100, 100), (building_x, building_y, 180, 270))
     # pygame.draw.rect(screen, window_sill, (building_x + 10, building_y + 13, 49, 69))
     # pygame.draw.rect(screen, window_colour, (building_x + 12, building_y + 15, 45, 65))
