@@ -1,2 +1,4 @@
 # BeginnerPyAnimProj
 simple python animation project
+
+I wanted to do a little bit more with the background, such as maybe adding an airplane or having the house overlook a lake or body of water of some kind, but I wasn't sure how to get the perspective right as well as actually drawing and programming the animation. I was able to  the house always remains in the corner of the screen no matter it's size as well as the postion of the clouds and the orbits of the sun and moon to change along with screen size. The sun and moon are actually two separate objects which do a complete rotation instead of a single object changing colour and teleporting from the right to the left side. The code was pretty tricky and took me some time to research how to implement it properly but I think it turned out pretty well
